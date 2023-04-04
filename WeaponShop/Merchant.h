@@ -27,5 +27,7 @@ public:
 	Merchant();
 	~Merchant();
     
+	void BuyWeapon();
 };
+
 
