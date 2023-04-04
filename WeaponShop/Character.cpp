@@ -18,6 +18,8 @@ Character::Character(std::string FirstName, std::string LastName, std::string Ca
 }
 
 Character::Character() {
-	mFirstName = 
+	
 }
+
+
 

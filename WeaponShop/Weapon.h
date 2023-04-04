@@ -27,6 +27,7 @@ private:
 
 
 public:
+	
 	Weapon(std::string Name, std::string Description, WeaponTypes WeaponType, int Weight, int BuyingCost, int Durability);
 	Weapon();
 	~Weapon();
