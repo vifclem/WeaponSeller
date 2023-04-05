@@ -18,8 +18,19 @@ Character::Character(std::string FirstName, std::string LastName, std::string Ca
 }
 
 Character::Character() {
-	
+	mFirstName = mFirstName;
+	mLastName = mLastName;
+	mCatchPhrase = mCatchPhrase;
+	mMoney = 0;
+	mLifePoints = 0;
+	mWeaponType = WeaponTypes();
+	mRace = Race::Human;
+
 }
 
+Character::~Character(){}
 
+int Character::PlayerMoney() {
+	return mMoney;
+}
 

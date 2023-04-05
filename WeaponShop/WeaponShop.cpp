@@ -9,72 +9,84 @@ string firstName;
 string lastName;
 string catchPhrase;
 
+Character player;
+
+//Weapon bow = Weapon("Arc", "arme a longue distance", Bow, 10, 20, 20);
+//Weapon Dagger = Weapon("Dagger", "arme de poing", Bow, 10, 20, 20);
+//Weapon Staff = Weapon("Staff", "arme efficace", Bow, 10, 20, 20);
+//Weapon Sword = Weapon("Sword", "arme courte distance", Bow, 10, 20, 20);
+
 
 
 
 void BuyWeapon() {
-    cout << "Tu a le chois entre :" << endl;
+    cout << "Actuelement tu a " <<player.PlayerMoney()<< " pieces." <<" Que veut tu acheter ?" << endl;
     cout << "1 : Un arc" << endl;
     cout << "2 : Une dague" << endl;
     cout << "3 : Un staff" << endl;
-    cout << "4 : Une épée" << endl;
+    cout << "4 : Une epee" << endl;
     int Banswer;
 
     do {
         cin >> Banswer;
 
         if (Banswer == 1) {
-
+            player = Character(firstName, lastName, catchPhrase, 1000, 100, Bow, Race::Human, Work::Warrior);
         }
         else if (Banswer == 2) {
-
+            player = Character(firstName, lastName, catchPhrase, 1000, 100, Dagger, Race::Human, Work::Warrior);
         }
         else if (Banswer == 3) {
-
+            player = Character(firstName, lastName, catchPhrase, 1000, 100, Staff, Race::Human, Work::Warrior);
         }
         else if (Banswer == 4) {
-
+            player = Character(firstName, lastName, catchPhrase, 1000, 100, Sword, Race::Human, Work::Warrior);
         }
     } while (Banswer != 1 && Banswer != 2 && Banswer != 3 && Banswer != 4);
 }
 
 void SellWeapon() {
     cout << "Quel arme veut tu vendre :" << endl;
+    cout << "Tu a actuelement une epee " << endl;
     cout << "1 : Un arc" << endl;
     cout << "2 : Une dague" << endl;
     cout << "3 : Un staff" << endl;
-    cout << "4 : Une épée" << endl;
+    cout << "4 : Une epee" << endl;
     int Banswer;
 
     do {
         cin >> Banswer;
 
         if (Banswer == 1) {
-
+            cout<< "Bravo ! Tu a vendu ton arc, tu a gagné 20 piece" << endl;
         }
         else if (Banswer == 2) {
-
+            cout << "Bravo ! Tu a vendu t'a dague, tu a gagné 20 piece" << endl;
         }
         else if (Banswer == 3) {
-
+            cout << "Bravo ! Tu a vendu ton staff, tu a gagné 20 piece" << endl;
         }
         else if (Banswer == 4) {
-
+            cout << "Bravo ! Tu a vendu ton epee, tu a gagné 20 piece" << endl;
         }
     } while (Banswer != 1 && Banswer != 2 && Banswer != 3 && Banswer != 4);
 }
 
 void ShowInventory() {
 
+
+
 }
 
 void Fight() {
 
-
+    cout << "BOUM ! BOUM ! BOUM !" << endl;
+    cout << "Voici ton ennemie ! " << endl;
+    //Random de 5 ennemie different 
 }
 
 void TalkToMerchant() {
-    cout << "Bonjour je suis Syra le marchant, je vent et achetes des armes ! Je suis sur que tu peut trouver ton bonheur ici !" << endl;
+    cout << "Hola amigo je suis Syra le marchant, mon magazin ce s'appelle le PALACE. Je vent et achetes des armes ! Je suis sur que tu peut trouver ton bonheur ici !" << endl;
     cout << "1 : Veut tu voir ton inventaire ?" << endl;
     cout << "2 : Veut tu acheter une arme ? " << endl;
     cout << "3 : Veut tu vendre une arme ? " << endl;
@@ -112,10 +124,10 @@ void Choice() {
         }
         else if (answer == 2) {
 
-            //methode ShowHistorique
+            ShowInventory();
         }
         else if (answer == 3) {
-            //Fight();
+            Fight();
         }
 
 
@@ -146,6 +158,7 @@ void Intro() {
 
    //metier
    cout << "Maintenant que je te connais un peu mieux dis moi ce que tu veut faire : " << endl;
+   player = Character(firstName, lastName, catchPhrase, 1000, 100, Sword, Race::Human, Work::Warrior);
    Choice();
    
 }

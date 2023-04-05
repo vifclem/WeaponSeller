@@ -38,7 +38,9 @@ public:
 	Character();
 	~Character();
 
-	
+
+
+	int PlayerMoney();
 
 
 

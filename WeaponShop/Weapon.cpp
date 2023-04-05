@@ -14,15 +14,17 @@ Weapon::Weapon(std::string Name, std::string Description, WeaponTypes WeaponType
 
 	}
 
-Weapon::Weapon() {
+Weapon::Weapon(){
 
 	mName = "Default";
 	mDescription = "Default";
 	mWeaponType = Default;
 	mWeight = 1;
-	mBuyingCost = 1;
+    mBuyingCost = 1;
 	mDurability = 1;
 }
+
+ 
 
 
 Weapon::~Weapon() {
