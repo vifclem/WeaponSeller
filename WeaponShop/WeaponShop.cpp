@@ -242,9 +242,9 @@ void Choice() {
 void Intro() {
 
    cout << "Bonjour voyageur, ce jeux est un WeaponSeller RPG ! "<< endl;
-   cout << "Durant votre aventure vous allez devoir choisir votre Prénom, votre Nom, votre phrase d'accroche, votre Race et votre metier"<< endl;
-   cout << "Vous aurais de l'argent que vous pouvez dépenser en achetant des armes. Vous pouvez egalement vendre ces armes ! " << endl;
-   cout << "Quand le marchant vous posera des questions vous devrez répondre par des chiffre " << endl;
+   cout << "Durant votre aventure vous allez devoir choisir votre Prenom, votre Nom, votre phrase d'accroche, votre Race et votre metier"<< endl;
+   cout << "Vous aurais de l'argent que vous pouvez depenser en achetant des armes. Vous pouvez egalement vendre ces armes ! " << endl;
+   cout << "Quand le marchant vous posera des questions vous devrez repondre par des chiffre " << endl;
    cout << "C'EST PARTI !! Quel est ton nom ? " << endl;
    
    getline(cin, firstName);
