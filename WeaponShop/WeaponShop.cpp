@@ -9,7 +9,11 @@ string firstName;
 string lastName;
 string catchPhrase;
 
-Character player;
+Character player = Character(firstName, lastName, catchPhrase, 1000, 100, Sword, Race::Human, Work::Warrior);
+Character ennemie;
+Weapon weapon;
+
+
 
 //Weapon bow = Weapon("Arc", "arme a longue distance", Bow, 10, 20, 20);
 //Weapon Dagger = Weapon("Dagger", "arme de poing", Bow, 10, 20, 20);
@@ -17,37 +21,46 @@ Character player;
 //Weapon Sword = Weapon("Sword", "arme courte distance", Bow, 10, 20, 20);
 
 
-
+void Choice();
 
 void BuyWeapon() {
-    cout << "Actuelement tu a " <<player.PlayerMoney()<< " pieces." <<" Que veut tu acheter ?" << endl;
+    cout << "Actuelement tu a " <<player.PlayerMoney()<< " pieces." <<" Toutes les armes sont a 20 pieces ! Que veut tu acheter ? " << endl;
     cout << "1 : Un arc" << endl;
     cout << "2 : Une dague" << endl;
     cout << "3 : Un staff" << endl;
     cout << "4 : Une epee" << endl;
+    cout << "5 : Revenir au menu" << endl;
     int Banswer;
 
     do {
         cin >> Banswer;
 
         if (Banswer == 1) {
-            player = Character(firstName, lastName, catchPhrase, 1000, 100, Bow, Race::Human, Work::Warrior);
+            player = Character(firstName, lastName, catchPhrase, 1000 - 20, 100, Bow, Race::Human, Work::Warrior);
+            
+            cout << "Bravo ! Tu as acheter un arc !" << endl;
         }
         else if (Banswer == 2) {
-            player = Character(firstName, lastName, catchPhrase, 1000, 100, Dagger, Race::Human, Work::Warrior);
+            player = Character(firstName, lastName, catchPhrase, 1000 - 20, 100, Dagger, Race::Human, Work::Warrior);
+            cout << "Bravo ! Tu as acheter une Dague !" << endl;
         }
         else if (Banswer == 3) {
-            player = Character(firstName, lastName, catchPhrase, 1000, 100, Staff, Race::Human, Work::Warrior);
+            player = Character(firstName, lastName, catchPhrase, 1000 - 20, 100, Staff, Race::Human, Work::Warrior);
+            cout << "Bravo ! Tu as acheter un staff !" << endl;
         }
         else if (Banswer == 4) {
-            player = Character(firstName, lastName, catchPhrase, 1000, 100, Sword, Race::Human, Work::Warrior);
+            player = Character(firstName, lastName, catchPhrase, 1000 - 20, 100 , Sword, Race::Human, Work::Warrior);
+            cout << "Bravo ! Tu vient de remplacer ton encienne epee par une nouvelle !" << endl;
         }
-    } while (Banswer != 1 && Banswer != 2 && Banswer != 3 && Banswer != 4);
+        else if (Banswer == 5) {
+            Choice();
+        }
+    } while (Banswer != 1 && Banswer != 2 && Banswer != 3 && Banswer != 4 && Banswer != 5);
 }
 
 void SellWeapon() {
     cout << "Quel arme veut tu vendre :" << endl;
-    cout << "Tu a actuelement une epee " << endl;
+    cout << "Tu a actuelement "<<player.GetWeaponType()<<" !" << endl;
     cout << "1 : Un arc" << endl;
     cout << "2 : Une dague" << endl;
     cout << "3 : Un staff" << endl;
@@ -58,59 +71,63 @@ void SellWeapon() {
         cin >> Banswer;
 
         if (Banswer == 1) {
+            player = Character(firstName, lastName, catchPhrase, 1000 + 20, 100, Default, Race::Human, Work::Warrior);
             cout<< "Bravo ! Tu a vendu ton arc, tu a gagné 20 piece" << endl;
         }
         else if (Banswer == 2) {
+            player = Character(firstName, lastName, catchPhrase, 1000 + 20, 100, Default, Race::Human, Work::Warrior);
             cout << "Bravo ! Tu a vendu t'a dague, tu a gagné 20 piece" << endl;
         }
         else if (Banswer == 3) {
+            player = Character(firstName, lastName, catchPhrase, 1000 + 20, 100, Default, Race::Human, Work::Warrior);
             cout << "Bravo ! Tu a vendu ton staff, tu a gagné 20 piece" << endl;
         }
         else if (Banswer == 4) {
+            player = Character(firstName, lastName, catchPhrase, 1000 + 20, 100, Default, Race::Human, Work::Warrior);
             cout << "Bravo ! Tu a vendu ton epee, tu a gagné 20 piece" << endl;
         }
     } while (Banswer != 1 && Banswer != 2 && Banswer != 3 && Banswer != 4);
 }
 
 void ShowInventory() {
-
-
-
+    cout << "Te voici dans ton inventaire " << player.GetName() << ", Mais ATTENTION..." << endl;
+    cout << "Tes armes sont affiché sous forme de chiffre." << endl;
+    cout << "(1) = arc,  (2) = Dague,  (3) = Staff,  (4) = sword" << endl;
+    cout << "Voici ton inventaire : " << endl;
+    cout << "tu as " << player.GetWeaponType() << endl;
+    Choice();
+    
 }
 
 void Fight() {
 
     cout << "BOUM ! BOUM ! BOUM !" << endl;
     cout << "Voici ton ennemie ! " << endl;
-    //Random de 5 ennemie different 
+    
 }
 
 void TalkToMerchant() {
     cout << "Hola amigo je suis Syra le marchant, mon magazin ce s'appelle le PALACE. Je vent et achetes des armes ! Je suis sur que tu peut trouver ton bonheur ici !" << endl;
-    cout << "1 : Veut tu voir ton inventaire ?" << endl;
-    cout << "2 : Veut tu acheter une arme ? " << endl;
-    cout << "3 : Veut tu vendre une arme ? " << endl;
+    cout << "Comme je dis souvent... Tant que tu as l'argent nous amis ! Hahahah" << endl;
+    cout << "1 : Veut tu acheter une arme ? " << endl;
+    cout << "2 : Veut tu vendre une arme ? " << endl;
     int Tanswer = 0;
     do {
         cin >> Tanswer;
         if (Tanswer == 1) {
-            ShowInventory();
+            BuyWeapon();
         }
         else if (Tanswer == 2) {
-            BuyWeapon();
-            
-        }
-        else if (Tanswer == 3) {
             SellWeapon();
         }
-    } while (Tanswer != 1 && Tanswer != 2 && Tanswer != 3);
-    
-
+    } while (Tanswer != 1 && Tanswer != 2);
+    Choice();
 }
 
 
 
 void Choice() {
+    cout << "Salut " << player.GetName() << " ! Tu est dans le menu" << endl;
     cout << "1 : Parler au marchant " << endl;
     cout << "2 : Voir ton historique " << endl;
     cout << "3 : Se battre ! " << endl;
@@ -154,9 +171,7 @@ void Intro() {
    getline(cin, catchPhrase);
    cout << "Ta phrase d'accroche est donc : " + catchPhrase + " !" << endl;
    
-   //race
-
-   //metier
+   
    cout << "Maintenant que je te connais un peu mieux dis moi ce que tu veut faire : " << endl;
    player = Character(firstName, lastName, catchPhrase, 1000, 100, Sword, Race::Human, Work::Warrior);
    Choice();

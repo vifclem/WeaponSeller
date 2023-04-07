@@ -31,6 +31,10 @@ Weapon::~Weapon() {
 
 }
 
+int Weapon::GetWeapon() {
+	return mWeaponType;
+}
+
 
 
 

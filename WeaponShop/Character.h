@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Weapon.h"
+using namespace std;
 
 enum Race
 {
@@ -41,8 +42,8 @@ public:
 
 
 	int PlayerMoney();
-
-
+	string GetName();
+	int GetWeaponType();
 
 };
 

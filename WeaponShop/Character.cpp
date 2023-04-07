@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "Weapon.h"
 #include <iostream>
+#include <string>
 
 
 Character::Character(std::string FirstName, std::string LastName, std::string CatchPhrase, int Money, int LifePoints, WeaponTypes WeaponType, Race Race, Work Work) {
@@ -34,3 +35,11 @@ int Character::PlayerMoney() {
 	return mMoney;
 }
 
+
+string Character::GetName() {
+	return mFirstName;
+}
+
+int Character::GetWeaponType() {
+	return mWeaponType;
+}
