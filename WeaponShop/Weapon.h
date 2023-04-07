@@ -28,13 +28,14 @@ private:
 
 public:
 	
-	Weapon(std::string Name, std::string Description, WeaponTypes WeaponType, int Weight, int BuyingCost, int Durability);
+	Weapon(std::string Name, std::string Description, WeaponTypes WeaponType, int Weight, int BuyingCost, int mDamages, int Durability);
 	Weapon();
 	~Weapon();
 
 
 	void Update();
 	int GetWeapon();
+	
 
 
 

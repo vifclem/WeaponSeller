@@ -43,3 +43,23 @@ string Character::GetName() {
 int Character::GetWeaponType() {
 	return mWeaponType;
 }
+
+int Character::GetLifePoints() {
+	return mLifePoints;
+}
+
+int Character::BuyWeapon() {
+	return mMoney - 20;
+}
+
+int Character::SellWeapon() {
+	return mMoney + 20;
+}
+
+int Character::GetHP() {
+	return mLifePoints;
+}
+
+int Character::OneHit() {
+	return mLifePoints - 20;
+}

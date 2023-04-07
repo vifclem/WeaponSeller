@@ -37,6 +37,7 @@ public:
 
 	Character(std::string FirstName, std::string LastName, std::string CatchPhrase, int Money, int LifePoints, WeaponTypes WeaponType, Race Race, Work Work);
 	Character();
+	
 	~Character();
 
 
@@ -44,6 +45,12 @@ public:
 	int PlayerMoney();
 	string GetName();
 	int GetWeaponType();
+	int GetLifePoints();
+	int BuyWeapon();
+	int SellWeapon();
+	int GetHP();
+	int OneHit();
+	
 
 };
 
