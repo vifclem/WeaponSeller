@@ -22,7 +22,8 @@ Weapon weapon;
 
 
 void Choice();
-
+void Fighttwo();
+void Fighttree();
 
 void BuyWeapon() {
     cout << "Actuelement tu a " <<player.PlayerMoney()<< " pieces." <<" Toutes les armes sont a 20 pieces ! Que veut tu acheter ? " << endl;
@@ -128,7 +129,7 @@ void Fight() {
         if (Fanswer == 1) {
             int Qanswer;
             enemy.OneHit();
-            cout << "Bravo ! Tu a enlever 20 HP au monstre ! Il ne lui reste plus que " << enemy.GetHP() << " HP" << endl;
+            cout << "Bravo ! Tu a enlever 20 HP au monstre ! Il ne lui reste plus que 20 HP" << endl;
             cout << "Veut tu le finir en canalisent ta force ?" << endl;
             cout << "(1) : oui" << endl;
             cout << "(2) : non" << endl;
@@ -138,40 +139,56 @@ void Fight() {
                 cout << "Bravo tu vient de lui infliger le coup fatale !! Tu a GAGNEEEEEEE !!!" << endl;
             }
             else if (Qanswer == 2) {
-                int Manswer;
-                player.OneHit();
-                cout << "Le monstre vient de te mettre 20 points de degats ! Il te reste" << player.GetHP() << " HP" << endl;
-                cin >> Manswer;
-                cout << " (1) Frappe le en retour ! " << endl;
-                if (Manswer == 1) {
-                    enemy.OneHit();
-                    cout << "Bravo tu vient de lui infliger le coup fatale !! Tu a GAGNEEEEEEE !!!" << endl;
-                }
                 
+                player.OneHit();
+                cout << "Le monstre vient de te mettre 20 points de degats ! Il te reste 80 HP" << endl;
+                Fighttwo();
+               
             }
            
         }
         else if (Fanswer == 2) {
             int Janswer;
             player.OneHit();
-            cout << "Le monstre vient de te mettre 20 points de degats ! Il te reste" << player.GetHP()<< " HP" << endl;
+            cout << "Le monstre vient de te mettre 20 points de degats ! Il te reste 80 HP" << endl;
             cout << " (1) Riposte !! " << endl;
             cin >> Janswer;
             if (Janswer == 1) {
-                int kanswer;
+               
                 enemy.OneHit();
-                cout << "Bravo tu vient de lui infliger 20 POINT DE DEGATS ! Il lui reste " << enemy.GetHP() << " HP" << endl;
-                cin >> kanswer;
-                cout << " (1) Fini le !!!" << endl;
-                if (kanswer == 1) {
-                    enemy.OneHit();
-                    cout << "Bravo tu vient de lui infliger le coup fatale !! Tu a GAGNEEEEEEE !!!" << endl;
-                }
-                
+                cout << "Bravo tu vient de lui infliger 20 POINT DE DEGATS ! Il lui reste 20 HP" << endl;
+                Fighttree();
+
             }
         }
     } while (Fanswer != 1 && Fanswer != 2 );
     
+}
+void Fighttree() {
+    cout << " (1) Fini le !!!" << endl;
+    int kanswer;
+    do {
+        cin >> kanswer;
+        enemy.OneHit();
+        if (kanswer == 1) {
+            cout << "Bravo tu vient de lui infliger le coup fatale !! Tu a GAGNEEEEEEE !!!" << endl;
+        }
+    } while (kanswer != 1);
+
+}
+void Fighttwo() {
+    cout << " (1) Frappe le en retour ! " << endl;
+    int Vanswer;
+    do {
+        cin >> Vanswer;
+        if (Vanswer == 1) {
+            
+            enemy.OneHit();
+            cout << "Bravo tu vient de lui infliger le coup fatale !! Tu a GAGNEEEEEEE !!!" << endl;
+        }
+    } while (Vanswer != 1);
+    
+
 }
 
 
